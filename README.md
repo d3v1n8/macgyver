@@ -15,7 +15,7 @@
 ### Homebrew (권장)
 
 ```bash
-brew tap hunwooha/mg
+brew tap d3v1n8/macgyver/mg
 brew install mg
 ```
 
