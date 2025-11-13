@@ -1,7 +1,7 @@
 class Mg < Formula
   desc "시크하고 강력한 CLI 북마크 관리 도구"
-  homepage "https://github.com/hunwooha/mg"
-  url "https://github.com/hunwooha/mg/archive/refs/tags/v1.0.0.tar.gz"
+  homepage "https://github.com/d3v1n8/macgyver"
+  url "https://github.com/d3v1n8/macgyver/archive/refs/tags/v1.0.0.tar.gz"
   sha256 ""  # 실제 릴리즈 생성 후 업데이트 필요
   license "MIT"
 
