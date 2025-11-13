@@ -22,7 +22,7 @@ brew install mg
 ### Manual Installation
 
 ```bash
-git clone https://github.com/hunwooha/mg.git
+git clone https://github.com/d3v1n8/macgyver.git
 cd mg
 ./install.sh
 ```
