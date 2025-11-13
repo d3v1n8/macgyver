@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# MacGyver Bookmark Manager
+# Main Entry Point
+
+# 스크립트 디렉토리 경로 가져오기
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+MG_ROOT="$(dirname "$SCRIPT_DIR")"
+
+# Core 라이브러리 로드
+source "$MG_ROOT/lib/core/config.sh"
+source "$MG_ROOT/lib/core/store.sh"
+
+# Commands 로드
+source "$MG_ROOT/lib/commands/help.sh"
+source "$MG_ROOT/lib/commands/list.sh"
+source "$MG_ROOT/lib/commands/add.sh"
+source "$MG_ROOT/lib/commands/delete.sh"
+source "$MG_ROOT/lib/commands/open.sh"
+source "$MG_ROOT/lib/commands/search.sh"
+source "$MG_ROOT/lib/commands/groups.sh"
+
+# Command Router
+case "$1" in
+  -help|--help|"")
+    print_help
+    ;;
+  b)
+    case "$2" in
+      list) shift 2; bm_list "$@" ;;
+      add) shift 2; bm_add "$@" ;;
+      delete) shift 2; bm_delete "$@" ;;
+      open) shift 2; bm_open "$@" ;;
+      search) shift 2; bm_search "$@" ;;
+      groups) bm_groups ;;
+      group)
+        case "$3" in
+          add) bm_group_add "$4" ;;
+          list) bm_group_list "$4" ;;
+          *) echo "Unknown group command";;
+        esac
+        ;;
+      *)
+        echo "Unknown subcommand"; print_help;;
+    esac
+    ;;
+  g)
+    case "$2" in
+      list) bm_groups ;;
+      add) shift 2; bm_group_add "$@" ;;
+      delete) shift 2; bm_group_delete "$@" ;;
+      *)
+        echo "Unknown group command"
+        echo "사용법:"
+        echo "  mgg list          - 그룹 목록 보기"
+        echo "  mgg add <그룹명>   - 그룹 추가"
+        echo "  mgg delete <그룹명> - 그룹 삭제"
+        ;;
+    esac
+    ;;
+  *)
+    # 그 외의 경우 검색으로 처리
+    if [ -n "$1" ]; then
+      # 모든 인자를 공백으로 연결하여 검색어로 사용
+      bm_quick_search "$*"
+    else
+      echo "Unknown command"; print_help
+    fi
+    ;;
+esac

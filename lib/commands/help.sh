@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Help 명령어
+
+print_help() {
+  echo -e "\033[1;37m"
+  echo -e "    ___  ___"
+  echo -e "   |   \\/   |"
+  echo -e "   | |\\  /| | __ _  ___"
+  echo -e "   | | \\/ | |/ _\`|/ __|"
+  echo -e "   | |    | | (_| | (__"
+  echo -e "   |_|    |_|\\__, |\\___|"
+  echo -e "              __/ |"
+  echo -e "             |___/"
+  echo -e "\033[0m   MacGyver Bookmark Manager"
+  echo -e ""
+  echo -e "\033[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
+  echo -e ""
+  echo -e "\033[1;37m빠른 검색\033[0m"
+  echo -e "  mg <검색어>           북마크/그룹 통합 검색"
+  echo -e ""
+  echo -e "\033[1;37m북마크\033[0m"
+  echo -e "  b list                북마크 목록 출력"
+  echo -e "  b add                 북마크 추가"
+  echo -e "  b delete              북마크 삭제"
+  echo -e "  b open <name>         브라우저로 열기"
+  echo -e ""
+  echo -e "\033[1;37m그룹\033[0m"
+  echo -e "  g list                그룹 목록 출력"
+  echo -e "  g add                 그룹 생성"
+  echo -e "  g delete              그룹 삭제"
+  echo -e ""
+  echo -e "\033[90m예시:\033[0m"
+  echo -e "  \033[37mmg github\033[0m"
+  echo -e "  \033[37mmgb add\033[0m"
+  echo -e "  \033[37mmgg add 개발\033[0m"
+  echo -e ""
+}
