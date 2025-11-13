@@ -1,6 +1,6 @@
 # MacGyver Bookmark Manager
 
-시크하고 강력한 CLI 북마크 관리 도구
+CLI 북마크 관리 도구
 
 ## Features
 
